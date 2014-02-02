@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140202165433) do
+ActiveRecord::Schema.define(:version => 20140202170237) do
 
   create_table "combos", :force => true do |t|
     t.string   "city"
@@ -35,8 +35,13 @@ ActiveRecord::Schema.define(:version => 20140202165433) do
     t.string   "artist"
     t.string   "name"
     t.integer  "soundcloud_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.integer  "soundcloud_user_id"
+    t.string   "waveform_url"
+    t.string   "artwork_url"
+    t.string   "time_uploaded"
+    t.integer  "tiny_planet_playcount"
   end
 
   create_table "users", :force => true do |t|
