@@ -1,0 +1,19 @@
+
+    <input name='genre' id='genre' placeholder='genre'></input>
+    <input name='city' id='city' placeholder='city'></input>
+    <button id='submit'>go</button>
+
+<script type="text/javascript">
+    $(submit).on('click', function(){
+        $.ajax({
+            url: '/test',
+            method: 'post',
+            dataType: 'json',
+            data: { genre: $('#genre').val(), city: $('#city').val() }
+        })
+        .success( function(data){
+            console.log(data)
+        })
+    })
+
+</script>    

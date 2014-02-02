@@ -3,6 +3,8 @@ Tinyplanet::Application.routes.draw do
 
   get '/' => 'main#index'
 
+  post '/test' => 'main#test'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
