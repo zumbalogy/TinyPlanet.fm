@@ -7,9 +7,12 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'pry'
+gem 'pry-remote'
+gem 'pry-nav'
+gem 'pry-rails'
 gem 'soundcloud'
 gem 'devise'
-
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

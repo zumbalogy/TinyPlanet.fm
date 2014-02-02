@@ -77,6 +77,13 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -123,6 +130,11 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.8)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -139,7 +151,11 @@ DEPENDENCIES
   jquery-rails
   pg
   pry
+  pry-nav
+  pry-rails
+  pry-remote
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   soundcloud
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
