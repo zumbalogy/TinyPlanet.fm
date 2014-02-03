@@ -17,8 +17,8 @@ class MainController < ApplicationController
             foo.url = track.uri
             foo.soundcloud_id = track.id
             foo.waveform_url = track.waveform_url
-            foo.artwork_url =
-            foo.artist = 
+            foo.artwork_url = track.artwork_url
+            foo.artist = track.user.username
             foo.save
         end
 
