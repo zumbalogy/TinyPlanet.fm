@@ -7,24 +7,26 @@
   </div>
 
   <div class='col-xs-3 pull-right'>
+
     <div id="signin-div" class="row" >
-    <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.username, "/users/edit" %></li>
-        <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to "sign in", new_user_session_path %></li>
-      <% end %>
-
-    </ul>
-
-</div>
-    <p>I'm listening to the...</p>
-    <input name='genre' id='genre' class="form-control" placeholder='genre'></input>
-    <br>
-    <p>scene in...</p>
-    <input name='city' class='form-control' id='city' placeholder='city'></input>
+      <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.username, "/users/edit" %></li>
+          <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "sign in", new_user_session_path %></li>
+        <% end %>
+      </ul>
     </div>
+
+    <p>I'm listening to the...</p>
+    <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
+    <br>
+    <p>in...</p>
+    <input name='city' class='form-control' id='city' placeholder='city'></input>
+
+  </div>
+
 </div>
 
 <div id="player" class="col-xs-8 col-xs-offset-2">
@@ -36,10 +38,7 @@
     <h5>Third Avenue Island</h5>
     <img class="rocket-icon" src="http://www.launchbrigade.com/wp-content/themes/launchbrigade/images/slider/rocket-ship.png" alt="">
 
-
 </div>
-
-
 
 <footer class="col-xs-12 navbar-fixed-bottom">
   <div id="stripe3"></div>
