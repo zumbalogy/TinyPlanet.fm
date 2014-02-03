@@ -1,0 +1,60 @@
+input {
+	padding: 4px;
+	margin: 4px;
+}
+
+footer {
+	background-color: red;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+}
+
+#logo {
+	height: 125px;
+	width: 125px;
+}
+
+#right {
+	height: 150px;
+	width: 150px;
+	background-color: blue;
+}
+
+#me {
+	background-color: red;
+	height: 150px;
+}
+
+#me2 {
+	background-color: purple;
+	height: 150px;
+}
+
+#me3 {
+	background-color: green;
+	height: 150px;
+}
+
+#page-top {
+	margin-bottom: 125px;
+}
+
+#player {
+	background-color: red;
+	height: 200px;
+}
+
+.row {
+	background-color: red;
+}
+
+.row div {
+	background-color: yellow;
+}
+
+.margin-top {
+	margin-top: 23px;
+}
+
+
