@@ -3,28 +3,28 @@
   <div id="circle"></div>
 
   <div id="title">
-  <h1>TINYPLANET</h1>
+      <h1>TINYPLANET</h1>
   </div>
 
   <div class='col-xs-3 pull-right'>
     <div id="signin-div" class="row" >
-    <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.username, "/users/edit" %></li>
-        <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to "sign in", new_user_session_path %></li>
-      <% end %>
+        <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
+          <% if user_signed_in? %>
+              <li><%= link_to current_user.username, "/users/edit" %></li>
+              <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+              <li><%= link_to "sign in", new_user_session_path %></li>
+          <% end %>
 
-    </ul>
+        </ul>
+    </div>
 
-</div>
     <p>I'm listening to the...</p>
     <input name='genre' id='genre' class="form-control" placeholder='genre'></input>
     <br>
     <p>scene in...</p>
     <input name='city' class='form-control' id='city' placeholder='city'></input>
-    </div>
+  </div>
 </div>
 
 <div id="player" class="col-xs-8 col-xs-offset-2">
