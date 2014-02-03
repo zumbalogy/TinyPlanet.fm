@@ -1,8 +1,22 @@
+
+
 <div id="page-top" class="row">
 
   <img id="logo" class="col-sm-2" src="http://icons.iconarchive.com/icons/dan-wiersma/solar-system/512/Uranus-icon.png" alt="">
 
-  <div class='col-xs-3 pull-right margin-top'>
+  <div class='col-xs-3 pull-right'>
+    <div id="signin-div" class="row" >
+    <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
+      <% if user_signed_in? %>
+
+        <li><%= link_to current_user.username, "/users/edit" %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+      <% end %>
+
+    </ul>
+</div>
     <input name='genre' id='genre' class="form-control" placeholder='genre'></input>
     <br>
     <input name='city' class='form-control' id='city' placeholder='city'></input>
@@ -15,10 +29,10 @@
 
 </div>
 
-
 <footer class="col-xs-12">
   
 </footer>
+
 
 
 
