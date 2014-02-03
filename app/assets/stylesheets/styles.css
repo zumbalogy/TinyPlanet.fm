@@ -1,5 +1,5 @@
 body{
-	background-color: pink;
+	background-color: black;
 }
 
 input {
@@ -7,38 +7,42 @@ input {
 	margin: 4px;
 }
 
+h1 {
+  color: white;
+  letter-spacing: 3px;
+  font-family: Syncopate;
+  font-size: 40px;
+}
+
+p {
+	color: white;
+	letter-spacing: 1px;
+	font-family: Syncopate;
+	font-size: 10px;
+}
+
 footer {
-	background-color: red;
 	height: 100px;
 	position: absolute;
 	bottom: 0;
 }
 
-#logo {
-	height: 125px;
-	width: 125px;
-	margin-top: 20px;
+#circle { 
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 80px;
+  margin-left: 60px;
+  background: orange; 
+  -moz-border-radius: 70px; 
+  -webkit-border-radius: 70px; 
 }
 
-#right {
-	height: 150px;
-	width: 150px;
-	background-color: blue;
-}
-
-#me {
-	background-color: red;
-	height: 150px;
-}
-
-#me2 {
-	background-color: purple;
-	height: 150px;
-}
-
-#me3 {
-	background-color: green;
-	height: 150px;
+#title {
+  float: right;
+  margin-top: 30px;
+  margin-right: 420px;
 }
 
 #page-top {
@@ -55,19 +59,30 @@ footer {
 	margin-right:20px;
 }
 
-.row {
-	background-color: red;
+#stripe1 { 
+  border-bottom: 50px solid orange; 
+  border-left: 50px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
-.row div {
-	background-color: yellow;
+#stripe2 { 
+  border-bottom: 100px solid purple; 
+  border-left: 100px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#stripe3 { 
+  border-bottom: 150px solid blue; 
+  border-left: 150px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .margin-top {
 	margin-top: 23px;
 }
-
-
-
-
-
