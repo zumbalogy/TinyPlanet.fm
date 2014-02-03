@@ -1,10 +1,22 @@
 
-    <input name='genre' id='genre' placeholder='genre'></input>
-    <input name='city' id='city' placeholder='city'></input>
-    <button id='submit'>go</button>
+
+    <div class='form-group'>
+    <input name='genre' class='form-control' id='genre' placeholder='genre'></input>
+    <input name='city' class='form-control' id='city' placeholder='city'></input>
+    <button id='enter' class='btn btn-primary'>go</button>
+    </div>
+
+    <ul id='ul'>
+        
+
+    </ul>
+
+ <!--    <iframe width="100%" height="166" scrolling="no" frameborder="no" 
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/59051244&color=ff5500">
+    </iframe> -->
 
 <script type="text/javascript">
-    $(submit).on('click', function(){
+    $('#enter').on('click', function(){
         $.ajax({
             url: '/test',
             method: 'post',
@@ -12,7 +24,12 @@
             data: { genre: $('#genre').val(), city: $('#city').val() }
         })
         .success( function(data){
-            console.log(data)
+            console.log(data);
+            $('#ul').empty();
+            for (var i=0;i<10;i++){
+                var foo = $('<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + data[i].id +'&color=01DFA5&show_comments=false&show_artwork=true&show_playcount=false&liking=false&theme_color=01DFA5&sharing=false&buying=false&show_user=false&show_artwork=false"></iframe>');
+                $('#ul').append(foo)
+            }
         })
     })
 
