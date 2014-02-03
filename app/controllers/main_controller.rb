@@ -15,11 +15,9 @@ class MainController < ApplicationController
     end
 
     def opinion
-        song = Song.find(params[:song_id])
-        user = User.find(params[:user_id])
         foo = Opinion.new
-        foo.song = song
-        foo.user = user
+        foo.song_id = Song.find(params[:song_id])
+        foo.user_id = User.find(params[:user_id])
         foo.enjoyed? = params[:opinion]
         foo.save
     end
