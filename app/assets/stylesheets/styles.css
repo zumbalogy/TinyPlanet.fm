@@ -21,6 +21,11 @@ h1 {
   font-size: 40px;
 }
 
+h2 {
+  color: white;
+  font-family: Syncopate;
+}
+
 h4 {
 	margin-top: 14px;
 }
@@ -42,7 +47,7 @@ footer {
 	bottom: 0;
 }
 
-#circle { 
+.logo { 
   float: left;
   width: 100px;
   height: 100px;
@@ -54,10 +59,35 @@ footer {
   -webkit-border-radius: 70px; 
 }
 
-#title {
+.title {
   float: right;
   margin-top: 30px;
   margin-right: 420px;
+}
+
+.form-inputs {
+  display: inline-block;
+}
+
+.form-actions {
+  display: inline-block;
+}
+
+.rocket-icon {
+  height: 20px;
+  margin-bottom: 14px;
+  transform:rotate(20deg);
+  -ms-transform:rotate(20deg); /* IE 9 */
+  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+}
+
+.margin-top {
+  margin-top: 23px;
+}
+
+.ticker{
+  height: 15px;
+  width: 185px;
 }
 
 #page-top {
@@ -105,25 +135,8 @@ footer {
   right: 0;
 }
 
-.rocket-icon {
-	height: 40px;
-  margin-bottom: 14px;
-	transform:rotate(20deg);
-	-ms-transform:rotate(20deg); /* IE 9 */
-	-webkit-transform:rotate(20deg); /* Safari and Chrome */
-}
-
-.margin-top {
-	margin-top: 23px;
-}
-
-.ticker{
-  height: 15px;
-  width: 185px;
-}
-
 @media screen{
   footer {
-    width: 50%;
+    width: 100%;
   }
 }
