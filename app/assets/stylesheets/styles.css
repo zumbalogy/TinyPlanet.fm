@@ -1,5 +1,6 @@
 body {
 	background-color: #243640;
+  color: white;
 }
 
 .navbar {
@@ -19,6 +20,11 @@ h1 {
   letter-spacing: 3px;
   font-family: Syncopate;
   font-size: 3em;
+}
+
+h2 {
+  color: white;
+  font-family: Syncopate;
 }
 
 h4 {
@@ -42,7 +48,7 @@ footer {
 	bottom: 0;
 }
 
-#circle { 
+.logo { 
   float: left;
   width: 100px;
   height: 100px;
@@ -54,10 +60,35 @@ footer {
   -webkit-border-radius: 70px; 
 }
 
-#title {
+.title {
   float: right;
   margin-top: 30px;
   margin-right: 420px;
+}
+
+.form-inputs {
+  display: inline-block;
+}
+
+.form-actions {
+  display: inline-block;
+}
+
+.rocket-icon {
+  height: 20px;
+  margin-bottom: 14px;
+  transform:rotate(20deg);
+  -ms-transform:rotate(20deg); /* IE 9 */
+  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+}
+
+.margin-top {
+  margin-top: 23px;
+}
+
+.ticker{
+  height: 15px;
+  width: 185px;
 }
 
 #page-top {
@@ -65,6 +96,7 @@ footer {
 }
 
 #player {
+  color: black;
   background-color: white;
 	height: 200px;
 	padding-left:0px;
@@ -122,8 +154,12 @@ footer {
   width: 185px;
 }
 
+.double-bottom-border {
+  border-bottom: double white;
+}
+
 @media screen{
   footer {
-    width: 50%;
+    width: 100%;
   }
 }
