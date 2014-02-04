@@ -37,8 +37,15 @@ class MainController < ApplicationController
         combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
             @playlist = []
             combo.songs.each do |song|
-            
+                if song.users.count > 0
+                    @playlist.unshift(song)
+                else
+                    @playlist.push(song)
+                end
             end
+        end
+        respond_to do |format|
+            format.json  { render :json => @playlist.to_json }
         end
     end
 
