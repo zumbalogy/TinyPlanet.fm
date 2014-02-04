@@ -34,7 +34,12 @@ class MainController < ApplicationController
     end
     
     def serve
-        
+        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+            @playlist = []
+            combo.songs.each do |song|
+            
+            end
+        end
     end
 
     
@@ -44,14 +49,15 @@ class MainController < ApplicationController
     end
 
     def opinion
-        foo = Opinion.new
-        foo.song_id = Song.find(params[:song_id])
-        foo.user_id = User.find(params[:user_id])
-        if foo.enjoyed
-            foo.enoyed = nil
-        else
+        find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], params[:user_id])
+        unless find
+            foo = Opinion.new
+            foo.song_id = Song.find(params[:song_id])
+            foo.user_id = User.find(params[:user_id])
             foo.enjoyed = params[:opinion]
+            foo.save
+        else
+            find.delete
         end
-        foo.save
     end
 end
