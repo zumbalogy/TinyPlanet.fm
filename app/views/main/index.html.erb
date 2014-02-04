@@ -57,7 +57,7 @@
             })
             .success( function(data){
                 console.log(data);
-                $('#ul').empty();
+ 
                 for (var i=0;i<10;i++){
                     var foo = $('<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + data[i].id +'&color=01DFA5&show_comments=false&show_artwork=true&show_playcount=false&liking=false&theme_color=01DFA5&sharing=false&buying=false&show_user=false&show_artwork=false"></iframe>');
                     $('#ul').append(foo);
