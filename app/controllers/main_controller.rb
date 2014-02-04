@@ -27,14 +27,29 @@ class MainController < ApplicationController
     
     def serve
         combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
-        @playlist = []
+        unliked = []
+        liked = []
+        high_count = 0
         combo.songs.each do |song|
             if song.users.count == 0
-                @playlist.push(song)
+                unliked.push(song)
             else
-                @playlist.unshift(song)
+                if song.users.count > high_count
+                    high_count = song.users.count
+                    liked_most = song
+                else
+                     liked.unshift(song)
+                end
             end
         end
+        liked.shuffle!
+        unliked.shuffle!
+        rand_front = unliked.shift(liked.length * 2)
+        rand_front += liked
+        rand_front.shuffle!
+        rand_front.unshift(liked_most)
+        @playlist = rand_front + unliked
+        
         respond_to do |format|
             format.json  { render :json => @playlist.to_json }
         end
