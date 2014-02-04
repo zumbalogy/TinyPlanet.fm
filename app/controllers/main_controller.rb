@@ -7,6 +7,7 @@ class MainController < ApplicationController
         @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable', limit: 1 )
         # do we then wsnt to make a playlist and pass in some songs of our own?
         # ie, @playlist = @tracks + .... 
+        binding.pry
 
 
         # I think combos should be saved when a user wants to save them, not before. 
