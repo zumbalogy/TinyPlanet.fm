@@ -3,18 +3,6 @@ body {
   color: white;
 }
 
-.navbar {
-  font-family: Syncopate;
-  background-color: #243640;
-  border-color: #243640;
-  color: white;
-}
-
-.navbar-inner {
-  background-color: #243640;
-  color: white;
-}
-
 h1 {
   color: white;
   letter-spacing: 3px;
@@ -43,52 +31,15 @@ p {
 }
 
 footer {
-	height: 123px;
+	height: 150px;
 	position: absolute;
 	bottom: 0;
 }
 
-.logo { 
-  float: left;
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  margin-top: 80px;
-  margin-left: 60px;
-  background: orange; 
-  -moz-border-radius: 70px; 
-  -webkit-border-radius: 70px; 
-}
-
-.title {
-  float: right;
-  margin-top: 30px;
-  margin-right: 420px;
-}
-
-.form-inputs {
-  display: inline-block;
-}
-
-.form-actions {
-  display: inline-block;
-}
-
-.rocket-icon {
-  height: 20px;
-  margin-bottom: 14px;
-  transform:rotate(20deg);
-  -ms-transform:rotate(20deg); /* IE 9 */
-  -webkit-transform:rotate(20deg); /* Safari and Chrome */
-}
-
-.margin-top {
-  margin-top: 23px;
-}
-
-.ticker{
-  height: 15px;
-  width: 185px;
+@media screen{
+  footer {
+    width: 100%;
+  }
 }
 
 #page-top {
@@ -100,6 +51,7 @@ footer {
   background-color: white;
 	height: 200px;
 	padding-left:0px;
+  margin-bottom: 100px;
 }
 
 #sign-in-btn{
@@ -150,6 +102,66 @@ footer {
   margin-left: 13px;
 }
 
+#just-played {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+.navbar {
+  font-family: Syncopate;
+  background-color: #243640;
+  border-color: #243640;
+  color: white;
+}
+
+.navbar-inner {
+  background-color: #243640;
+  color: white;
+}
+
+.logo { 
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 80px;
+  margin-left: 60px;
+  background: orange; 
+  -moz-border-radius: 70px; 
+  -webkit-border-radius: 70px; 
+}
+
+.title {
+  float: right;
+  margin-top: 30px;
+  margin-right: 420px;
+}
+
+.form-inputs {
+  display: inline-block;
+}
+
+.form-actions {
+  display: inline-block;
+}
+
+.rocket-icon {
+  height: 20px;
+  margin-bottom: 14px;
+  transform:rotate(20deg);
+  -ms-transform:rotate(20deg); /* IE 9 */
+  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+}
+
+.margin-top {
+  margin-top: 23px;
+}
+
+.ticker{
+  height: 15px;
+  width: 185px;
+}
+
 .rocket-icon {
 	height: 40px;
   margin-bottom: 14px;
@@ -174,10 +186,4 @@ footer {
 
 .no-margin-top {
   margin-top: 0px;
-}
-
-@media screen{
-  footer {
-    width: 100%;
-  }
 }
