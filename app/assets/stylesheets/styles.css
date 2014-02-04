@@ -1,6 +1,7 @@
 body {
 	background-color: #243640;
 }
+
 .navbar {
   font-family: Syncopate;
   background-color: #243640;
@@ -12,6 +13,7 @@ body {
   background-color: #243640;
   color: white;
 }
+
 h1 {
   color: white;
   letter-spacing: 3px;
@@ -63,7 +65,7 @@ footer {
 }
 
 #player {
-	background-color: red;
+  background-color: white;
 	height: 200px;
 	padding-left:0px;
 }
