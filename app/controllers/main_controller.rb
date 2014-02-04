@@ -51,6 +51,7 @@ class MainController < ApplicationController
             foo.enoyed = nil
         else
             foo.enjoyed = params[:opinion]
+        end
         foo.save
     end
 end
