@@ -1,16 +1,8 @@
 class MainController < ApplicationController
 
     def save
-        check = true
-        genre_check = Combo.find_by_genre(params[:genre])
-        if genre_check
-            genre_check.each do |combo|
-                if combo.city == params[:city]
-                    check = false
-                end
-            end
-        end
-        if check
+        check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+        if check.length == 0
             @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
             @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre])
      
@@ -52,7 +44,6 @@ class MainController < ApplicationController
     
 
     def index
-    
     end
 
     def opinion
