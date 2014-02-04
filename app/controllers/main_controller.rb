@@ -7,6 +7,7 @@ class MainController < ApplicationController
         @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable', limit: 1 )
         # do we then wsnt to make a playlist and pass in some songs of our own?
         # ie, @playlist = @tracks + .... 
+        binding.pry
 
 
         # I think combos should be saved when a user wants to save them, not before. 
@@ -34,7 +35,7 @@ class MainController < ApplicationController
         #     song.artwork_url = track.artwork_url
         #     song.artist = track.user.username
         #     song.save!
-        end
+        # end
 
         respond_to do |format|
             format.json { render json: @tracks.to_json }
