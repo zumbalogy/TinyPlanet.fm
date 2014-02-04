@@ -18,6 +18,7 @@
             })
         }
     })
+    $('#myspan').toggleClass('glyphicon-heart-empty glyphicon-heart')
   });
 
 
