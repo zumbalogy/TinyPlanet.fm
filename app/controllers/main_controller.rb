@@ -29,10 +29,10 @@ class MainController < ApplicationController
         combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
         @playlist = []
         combo.songs.each do |song|
-            if song.users.count > 0
-                @playlist.unshift(song)
-            else
+            if song.users.count == 0
                 @playlist.push(song)
+            else
+                @playlist.unshift(song)
             end
         end
         respond_to do |format|
