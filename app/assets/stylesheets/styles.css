@@ -43,7 +43,7 @@ p {
 }
 
 footer {
-	height: 100px;
+	height: 123px;
 	position: absolute;
 	bottom: 0;
 }
@@ -137,6 +137,19 @@ footer {
   right: 0;
 }
 
+#you-last-played-icons {
+  margin-top: 10px;
+}
+
+#last-played-heart {
+  margin-top:7px;
+  font-size: 25px;
+}
+
+#last-played-rocket {
+  margin-left: 13px;
+}
+
 .rocket-icon {
 	height: 40px;
   margin-bottom: 14px;
@@ -155,7 +168,12 @@ footer {
 }
 
 .double-bottom-border {
+  padding-bottom: 4px;
   border-bottom: double white;
+}
+
+.no-margin-top {
+  margin-top: 0px;
 }
 
 @media screen{
