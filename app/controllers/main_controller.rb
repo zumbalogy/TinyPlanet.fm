@@ -3,7 +3,7 @@ class MainController < ApplicationController
     def test
         client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
 
-        tracks = client.get('/tracks', q: params[:city], genres: params[:genre] )
+        tracks = client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable' )
 
         combo = Combo.new
         combo.city = params[:city]
@@ -11,15 +11,15 @@ class MainController < ApplicationController
         combo.save
 
         tracks.each do |track|
-            foo = Song.new
-            foo.combo_id = combo.id
-            foo.name = track.title
-            foo.url = track.uri
-            foo.soundcloud_id = track.id
-            foo.waveform_url = track.waveform_url
-            foo.artwork_url = track.artwork_url
-            foo.artist = track.user.username
-            foo.save
+            track = Song.new
+            track.combo_id = combo.id
+            track.name = track.title
+            track.url = track.uri
+            track.soundcloud_id = track.id
+            track.waveform_url = track.waveform_url
+            track.artwork_url = track.artwork_url
+            track.artist = track.user.username
+            track.save
         end
 
         respond_to do |format|
