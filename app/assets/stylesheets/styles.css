@@ -14,6 +14,14 @@ footer {
 	bottom: 0;
 }
 
+h4 {
+	margin-top: 18px;
+}
+
+h5 {
+	margin-top: 20px;
+}
+
 #logo {
 	height: 125px;
 	width: 125px;
@@ -48,11 +56,18 @@ footer {
 #player {
 	background-color: red;
 	height: 200px;
-	margin-bottom: 60px;
+	padding-left:0px;
 }
 
 #sign-in-btn{
 	margin-right:20px;
+}
+
+#alb-cover{
+	height:200px;
+	width: 200px;
+	margin-right: 15px;
+	float:left;
 }
 
 .row {
@@ -67,6 +82,12 @@ footer {
 	margin-top: 23px;
 }
 
+.rocket-icon {
+	height: 40px;
+	transform:rotate(20deg);
+	-ms-transform:rotate(20deg); /* IE 9 */
+	-webkit-transform:rotate(20deg); /* Safari and Chrome */
+}
 
 
 
