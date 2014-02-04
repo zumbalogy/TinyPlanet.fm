@@ -1,24 +1,5 @@
 <div id="page-top" class="row">
 
-  <div id="circle"></div>
-
-  <div id="title">
-      <h1>TINYPLANET</h1>
-  </div>
-
-  <div class='col-xs-3 pull-right'>
-    <div id="signin-div" class="row" >
-      <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.username, "/users/edit" %></li>
-          <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "sign in", new_user_session_path %></li>
-        <% end %>
-
-      </ul>
-    </div>
-
     <p>I'm listening to the...</p>
     <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
     <br>
@@ -39,11 +20,7 @@
 
 </div>
 
-<footer class="col-xs-12 navbar-fixed-bottom">
-  <div id="stripe3"></div>
-  <div id="stripe2"></div>
-  <div id="stripe1"></div> 
-</footer>
+
 
 <script type="text/javascript">
     // this is for pressing enter to submit the ajax call

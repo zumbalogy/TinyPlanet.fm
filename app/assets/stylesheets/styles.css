@@ -1,7 +1,17 @@
 body {
-	background-color: black;
+	background-color: #243640;
+}
+.navbar {
+  font-family: Syncopate;
+  background-color: #243640;
+  border-color: #243640;
+  color: white;
 }
 
+.navbar-inner {
+  background-color: #243640;
+  color: white;
+}
 h1 {
   color: white;
   letter-spacing: 3px;
@@ -110,3 +120,8 @@ footer {
   width: 185px;
 }
 
+@media screen{
+  footer {
+    width: 50%;
+  }
+}
