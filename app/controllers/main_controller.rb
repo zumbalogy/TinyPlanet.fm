@@ -3,9 +3,11 @@ class MainController < ApplicationController
     def save
         check = true
         genre_check = Combo.find_by_genre(params[:genre])
-        genre_check.each do |combo|
-            if combo.city == params[:city]
-                check = false
+        if genre_check
+            genre_check.each do |combo|
+                if combo.city == params[:city]
+                    check = false
+                end
             end
         end
         if check
@@ -45,7 +47,10 @@ class MainController < ApplicationController
         foo = Opinion.new
         foo.song_id = Song.find(params[:song_id])
         foo.user_id = User.find(params[:user_id])
-        foo.enjoyed = params[:opinion]
+        if foo.enjoyed
+            foo.enoyed = nil
+        else
+            foo.enjoyed = params[:opinion]
         foo.save
     end
 end
