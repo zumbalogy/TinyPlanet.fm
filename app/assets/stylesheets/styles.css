@@ -1,4 +1,4 @@
-body{
+body {
 	background-color: black;
 }
 
@@ -10,11 +10,11 @@ h1 {
 }
 
 h4 {
-	margin-top: 18px;
+	margin-top: 14px;
 }
 
 h5 {
-	margin-top: 20px;
+	margin-top: 16px;
 }
 
 p {
@@ -95,6 +95,7 @@ footer {
 
 .rocket-icon {
 	height: 40px;
+  margin-bottom: 14px;
 	transform:rotate(20deg);
 	-ms-transform:rotate(20deg); /* IE 9 */
 	-webkit-transform:rotate(20deg); /* Safari and Chrome */
@@ -105,7 +106,7 @@ footer {
 }
 
 .ticker{
-  height: 40px;
+  height: 15px;
   width: 185px;
 }
 
