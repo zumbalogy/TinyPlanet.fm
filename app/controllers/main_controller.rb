@@ -34,7 +34,7 @@ class MainController < ApplicationController
         #     song.artwork_url = track.artwork_url
         #     song.artist = track.user.username
         #     song.save!
-        end
+        # end
 
         respond_to do |format|
             format.json { render json: @tracks.to_json }
