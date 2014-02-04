@@ -1,5 +1,6 @@
 body {
 	background-color: #243640;
+  color: white;
 }
 
 .navbar {
@@ -65,6 +66,7 @@ footer {
 }
 
 #player {
+  color: black;
   background-color: white;
 	height: 200px;
 	padding-left:0px;
@@ -120,6 +122,10 @@ footer {
 .ticker{
   height: 15px;
   width: 185px;
+}
+
+.double-bottom-border {
+  border-bottom: double white;
 }
 
 @media screen{
