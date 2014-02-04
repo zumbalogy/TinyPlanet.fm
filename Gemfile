@@ -8,7 +8,7 @@ gem 'rails', '3.2.16'
 gem 'pg'
 gem 'soundcloud'
 gem 'devise'
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 
 # Gems used only for assets and not required
