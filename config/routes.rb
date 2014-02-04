@@ -7,7 +7,7 @@ Tinyplanet::Application.routes.draw do
 
   post '/save' => 'main#save'
 
-  get '/serve' => 'main#serve'
+  post '/serve' => 'main#serve'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

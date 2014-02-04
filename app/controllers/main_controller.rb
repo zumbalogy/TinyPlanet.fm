@@ -25,7 +25,7 @@ class MainController < ApplicationController
         # respond_to do |format|
         #     format.json  { render :json => }
         # end
-        redirect_to "/"
+        # redirect_to "/"
     end
     
     def serve
@@ -53,8 +53,8 @@ class MainController < ApplicationController
         unless find
             foo = Opinion.new
             foo.song_id = Song.find(params[:song_id])
-            foo.user_id = User.find(params[:user_id])
-            foo.enjoyed = params[:opinion]
+            foo.user_id = User.find(params[:user_id]) #current_user
+            foo.enjoyed = true
             foo.save
         else
             find.delete
