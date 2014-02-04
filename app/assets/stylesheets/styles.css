@@ -60,7 +60,7 @@ footer {
 }
 
 #page-top {
-	margin-bottom: 125px;
+	margin-bottom: 25px;
 }
 
 #player {
@@ -118,3 +118,9 @@ footer {
 .margin-top {
 	margin-top: 23px;
 }
+
+.ticker{
+  height: 40px;
+  width: 185px;
+}
+
