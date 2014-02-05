@@ -25,7 +25,7 @@ class MainController < ApplicationController
       puts "already created!"
     end
     # head :created, location: @client
-    render :nothing => true
+    render :nothing => true ## cause we dont need to render nada
   end
 
 
@@ -52,7 +52,7 @@ class MainController < ApplicationController
     rand_front = unliked.shift(liked.length * 2)
     rand_front += liked
     rand_front.shuffle!
-    begin
+    begin  ##error handling 
       rand_front.unshift(liked_most)
     rescue
       puts "No songs liked in this scene yet :("
