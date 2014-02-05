@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :favorites
+  has_many :combos, through: :favorites 
   has_many :songs, through: :opinions
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
