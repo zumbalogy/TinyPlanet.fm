@@ -3,16 +3,18 @@ body {
   color: white;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6, p, li, footer {
   color: white;
-  letter-spacing: 3px;
   font-family: Syncopate;
+}
+
+h1 {
+  letter-spacing: 3px;
   font-size: 3em;
 }
 
 h2 {
-  color: white;
-  font-family: Syncopate;
+
 }
 
 h4 {
@@ -24,9 +26,7 @@ h5 {
 }
 
 p {
-	color: white;
 	letter-spacing: 1px;
-	font-family: Syncopate;
 	font-size: 10px;
 }
 
@@ -191,12 +191,4 @@ footer {
 
 .no-margin-top {
   margin-top: 0px;
-}
-
-.red {
-  background-color: red;
-}
-
-.yellow {
-  background-color: yellow;
 }
