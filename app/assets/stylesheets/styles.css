@@ -1,4 +1,4 @@
-body {
+/*body {
 	background-color: #243640;
   color: black;
 }
@@ -14,12 +14,9 @@ h1 {
 }
 
 h2 {
-<<<<<<< HEAD
   color: black;
   font-family: Syncopate;
-=======
 
->>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
 }
 
 h4 {
@@ -31,10 +28,9 @@ h5 {
 }
 
 p {
-<<<<<<< HEAD
+
 	color: black;
-=======
->>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
+
 	letter-spacing: 1px;
 	font-size: 10px;
 }
@@ -163,8 +159,8 @@ footer {
   height: 20px;
   margin-bottom: 14px;
   transform:rotate(20deg);
-  -ms-transform:rotate(20deg); /* IE 9 */
-  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+  -ms-transform:rotate(20deg); /* IE 9 
+  -webkit-transform:rotate(20deg); /* Safari and Chrome 
 }
 
 .margin-top {
@@ -180,8 +176,8 @@ footer {
 	height: 40px;
   margin-bottom: 14px;
 	transform:rotate(20deg);
-	-ms-transform:rotate(20deg); /* IE 9 */
-	-webkit-transform:rotate(20deg); /* Safari and Chrome */
+	-ms-transform:rotate(20deg); /* IE 9 
+	-webkit-transform:rotate(20deg); /* Safari and Chrome 
 }
 
 .margin-top {
@@ -200,4 +196,4 @@ footer {
 
 .no-margin-top {
   margin-top: 0px;
-}
+}*/
