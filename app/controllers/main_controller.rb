@@ -25,7 +25,7 @@ class MainController < ApplicationController
         # respond_to do |format|
         #     format.json  { render :json => }
         # end
-        redirect_to "/"
+        # redirect_to "/"
     end
     
     def serve
@@ -64,16 +64,28 @@ class MainController < ApplicationController
     end
 
     def opinion
-        find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], params[:user_id])
-        unless find
+        find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
+        if find == []
             foo = Opinion.new
             foo.song_id = Song.find(params[:song_id])
-            foo.user_id = User.find(params[:user_id]) #current_user
+            foo.user_id = User.find(current_user) 
             foo.enjoyed = true
             foo.save
         else
             find.delete
         end
         redirect_to "/"
+    end
+
+    def favorite
+        find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user))
+        if find == []
+            foo = Favorite.new
+            foo.user_id = current_user
+            foo.combo_id = params[:combo_id]
+            foo.save
+        else
+            find[0].destroy
+        end
     end
 end

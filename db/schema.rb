@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203194521) do
+ActiveRecord::Schema.define(:version => 20140205024518) do
 
   create_table "combos", :force => true do |t|
     t.string   "city"
     t.string   "genre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "combo_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
