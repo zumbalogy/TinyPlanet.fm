@@ -38,7 +38,7 @@ class MainController < ApplicationController
                     liked << liked_most if liked_most
                     liked_most = song
                 else
-                     liked.push(song)
+                    liked.push(song)
                 end
             end
         end
