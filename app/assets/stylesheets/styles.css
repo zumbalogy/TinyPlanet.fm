@@ -107,6 +107,10 @@ footer {
   margin-top: 15px;
 }
 
+#stripes-div {
+  position: relative;
+}
+
 .navbar {
   font-family: Syncopate;
   background-color: #243640;
