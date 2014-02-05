@@ -1,6 +1,6 @@
 body {
 	background-color: #243640;
-  color: white;
+  color: black;
 }
 
 h1, h2, h3, h4, h5, h6, p, li, footer {
@@ -14,7 +14,12 @@ h1 {
 }
 
 h2 {
+<<<<<<< HEAD
+  color: black;
+  font-family: Syncopate;
+=======
 
+>>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
 }
 
 h4 {
@@ -26,6 +31,10 @@ h5 {
 }
 
 p {
+<<<<<<< HEAD
+	color: black;
+=======
+>>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
 	letter-spacing: 1px;
 	font-size: 10px;
 }

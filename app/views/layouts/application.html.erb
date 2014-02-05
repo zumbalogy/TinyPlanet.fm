@@ -12,13 +12,28 @@
 
   </head>
 
-  <body>
-    <script src="//connect.soundcloud.com/sdk.js"></script>
+  <body>   <div id="signin-div" class="row" >
+      <ul id="sign-in-btn">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.username, "/users/edit" %></li>
+          <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+        <%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
+
+        <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
+          <%= render "users/login_modal" %>
+
+          <%= render "users/sign_up_modal" %>
+        <% end %>
+      </ul>
+    </div>
+
+
+
 
     <div class="container">
-        <%= render 'layouts/modal' %>
+        <%= yield %> 
         <%= yield %>
-        <%= render 'layouts/footer' %>
     </div>
 
     <div id="stripes-div">

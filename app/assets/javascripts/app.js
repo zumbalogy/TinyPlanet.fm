@@ -5,17 +5,17 @@
         if (e.which == 13) {
             $.ajax({
                 url: '/save',
-                method: 'post',
+                method: 'POST',
                 dataType: 'json',
                 data: { genre: $('#genre').val(), city: $('#city').val() }
             })
             .success( function(data){
                 console.log(data); 
-                   
+
             })
             $.ajax({
                 url: '/serve',
-                method: 'GET',
+                method: 'POST',
                 dataType: 'json',
                 data: { genre: $('#genre').val(), city: $('#city').val() }
             })
@@ -28,7 +28,23 @@
             })
 
         };
+
+
     });
+
+    $('like').on("click", function(){
+        $.ajax({
+            url: "/opinions",
+            method: "POST",
+            dataType: 'json',
+            data: { song_id: 'song_id_goes_here'}
+
+        })
+
+
+    });
+
+    
 })    
 
 
