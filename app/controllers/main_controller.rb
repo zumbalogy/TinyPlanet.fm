@@ -25,7 +25,7 @@ class MainController < ApplicationController
         # respond_to do |format|
         #     format.json  { render :json => }
         # end
-        # redirect_to "/"
+        redirect_to "/"
     end
     
     def serve
