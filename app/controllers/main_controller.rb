@@ -74,7 +74,7 @@ class MainController < ApplicationController
         else
             find.delete
         end
-        redirect_to "/"
+        # redirect_to "/"
     end
 
     def favorite
