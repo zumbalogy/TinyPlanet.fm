@@ -89,17 +89,13 @@ footer {
   right: 0;
 }
 
-#you-last-played-icons {
-  margin-top: 10px;
-}
-
 #last-played-heart {
-  margin-top:7px;
+  margin-top: 7px;
   font-size: 25px;
 }
 
 #last-played-rocket {
-  margin-left: 13px;
+  margin-left: 25px;
 }
 
 #just-played {
@@ -190,4 +186,12 @@ footer {
 
 .no-margin-top {
   margin-top: 0px;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
 }
