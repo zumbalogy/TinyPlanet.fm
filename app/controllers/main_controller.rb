@@ -21,11 +21,11 @@ class MainController < ApplicationController
                 song.artist = track.user.username
                 song.save
             end
-        end
         # respond_to do |format|
-        #     format.json  { render :json => }
+        #     format.json  { render :json => "hello" }
         # end
-        redirect_to "/"
+    end
+      
     end
     
     def serve
@@ -59,6 +59,5 @@ class MainController < ApplicationController
         else
             find.delete
         end
-        redirect_to "/"
     end
 end
