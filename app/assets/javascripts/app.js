@@ -2,16 +2,20 @@ var songs;
 
 var audioView = function audioView() {
     var self = this;
-    var audio = new Audio(songs[0].url)
-    audio.id = "0"
-    audio.onload = function (){
-        audio.play()
-    }
-    audio.addEventListener("ended", function (){
-        audio.src = songs[self.audio.id.toInteger + 1].url;
-        audio.id = self.audio.id.toInteger + 1;
-    })
+    var track = 0
+    var audio = new Audio
 
+        function newSong() {
+            var song = songs[track]
+            audio.src = song.url
+            audio.onload = function (){
+                audio.play()
+            }
+            audio.addEventListener("ended", function (){
+                track++
+                newSong();
+            })
+        }
     
     $('#play').on('click', function(){
         audio.play();
@@ -22,12 +26,16 @@ var audioView = function audioView() {
     })
 
     $('#next').on('click', function() {
-        audio.src = songs[self.audio.id.toInteger + 1].url;
-        audio.id = self.audio.id.toInteger + 1;
+        audio.setAttribute('src', songs[track+1].url)
+        track++
+        audio.load();
+        audio.play();
     
     })
       $('#player').append(audio)
-}
+      newSong();
+  }
+
 
 
 
