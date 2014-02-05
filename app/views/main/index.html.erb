@@ -1,9 +1,13 @@
-<div id="signin-div" class="navbar" >
-  <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.username, "/users/edit" %></li>
-      <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+<div class="inner cover">
+ <% unless user_signed_in? %>
+  <h1 class="cover-heading">Make a Scene.</h1>
+    <p class="lead">ever wonder about what music you might be missing out on? with tinyplanet.fm, you can search, like, and find local artists playing the music you want to here. </p>
+    <p class="lead">
+    <a href="#" class="btn btn-lg btn-default">Get Started</a>
+    </p>
+  </div>
     <% else %>
+<<<<<<< HEAD
       <li><%= link_to "sign in", new_user_session_path %></li>
     <% end %>
   </ul>
@@ -30,17 +34,24 @@
     <input name='city' class='form-control' id='city' placeholder='city'></input>
 
   </div>
+=======
+  <div class="make-scene">
+        <p>I'm listening to the...</p>
+        <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
+        <br>
+        <p>in...</p>
+      <input name='city' class='form-control' id='city' placeholder='city'></input>
+</div>
+    
+>>>>>>> 0709383a93c8bb52283bf0ad54da68cd73e8e8c3
 
-  <div class='col-xs-3 pull-right'>
-<!-- form_for this? - MHP -->
-    <p>I'm listening to the...</p>
-    <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
-    <br>
-    <p>in...</p>
-    <input name='city' class='form-control' id='city' placeholder='city'></input>
 
+<div id="player" class="col-xs-8 col-xs-offset-2">
+  <div id="album art">
+    I AM ART
   </div>
 
+<<<<<<< HEAD
 </div>
 <!-- END page-top DIV -->
 
@@ -58,7 +69,36 @@
     <img class="ticker" src="https://raw.github.com/indabaui/player/master/screenshots/soundcloud.png" alt="Share">
   </div>
 
-</div>
+=======
+  <div id="song-info">
+    I AM SONG INFO
+  </div>
 
- <%= render 'layouts/footer' %> 
+<div id="controls">
+<span class="glyphicon glyphicon-play glyphicon-large"></span>
+<span class="glyphicon glyphicon-pause glyphicon-large"></span>
+<span class="glyphicon glyphicon-stop glyphicon-large"></span>
+>>>>>>> 0709383a93c8bb52283bf0ad54da68cd73e8e8c3
+</div>
+  <div id="share-like">
+  <span id="like" class="glyphicon glyphicon-heart-empty"></span>
+  <span id="favorite" class=></span>
+  </div>
+
+ <footer class="row">
+  <div id="just-played" class="col-lg-4 col-xs-6">
+    <h4 class="double-bottom-border">You last played:</h4> 
+    <div id="last-played-content" class="row">
+      <div class="col-lg-6">  
+        <h5 class="no-margin-top">"She Sleeps Alone"</h5> 
+        <h5>MiniBoone</h5>
+      </div>
+      <div class="col-xs-4 col-lg-6 pull-left">
+        <span id="last-played-heart" class="glyphicon glyphicon-heart pull-left"></span>
+      </div>
+    </div>
+  </div>
+</footer>
+<% end %>
+
 

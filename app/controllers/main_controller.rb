@@ -24,6 +24,7 @@ class MainController < ApplicationController
     else
       puts "already created!"
     end
+<<<<<<< HEAD
   # head :created, location: @client
   render :nothing => true
   end
@@ -47,6 +48,45 @@ class MainController < ApplicationController
           end
       end
     end
+=======
+    # head :created, location: @client
+    render :nothing => true ## cause we dont need to render nada
+  end
+    
+    def serve
+        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+        unliked = []
+        liked = []
+        high_count = 0
+        combo.songs.each do |song|
+            if song.users.count == 0
+                unliked.push(song)
+            else
+                if song.users.count > high_count
+                    high_count = song.users.count
+                    liked << liked_most if liked_most
+                    liked_most = song
+                else
+                    liked.push(song)
+                end
+            end
+        end
+
+      end
+    end
+    liked.shuffle!
+    unliked.shuffle!
+    rand_front = unliked.shift(liked.length * 2)
+    rand_front += liked
+    rand_front.shuffle!
+    begin  ##error handling 
+      rand_front.unshift(liked_most)
+    rescue
+      puts "No songs liked in this scene yet :("
+    end
+    @playlist = rand_front + unliked
+
+>>>>>>> 0709383a93c8bb52283bf0ad54da68cd73e8e8c3
 
     liked.shuffle!
     unliked.shuffle!

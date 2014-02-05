@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TinyPlanet.fm</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -13,25 +13,40 @@
 
   </head>
 
-  <body>   <div id="signin-div" class="row" >
-      <ul id="sign-in-btn">
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.username, "/users/edit" %></li>
-          <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-        <%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
+  <body>   
+  <%= render "users/login_modal" %>
 
-        <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
-          <%= render "users/login_modal" %>
+  <%= render "users/sign_up_modal" %>
 
-          <%= render "users/sign_up_modal" %>
-        <% end %>
-      </ul>
-    </div>
+   <div class="site-wrapper">
 
-    <div class="container">
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">tinyplanet.fm</h3>
+              <ul class="nav masthead-nav">
+                 <% if user_signed_in? %>
+                    <li class="active"> <%= link_to current_user.username, "/users/edit" %></li>
+                    <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                <li class="active"><%= link_to "Login", "#login", "data-toggle" => "modal" %></li>
+
+                <li><%= link_to "Sign up", "#sign_up", "data-toggle" => "modal"%> </li>
+                  
+              <% end %>
+              </ul>
+            </div>
+          </div>
+
         <%= yield %> 
     </div>
+  </div>
+</div>
+
+    
 
     <div id="stripes-div">
       <div id="stripe3"></div>
