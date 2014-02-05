@@ -46,20 +46,18 @@ class MainController < ApplicationController
                 end
             end
         end
-
-      end
+        liked.shuffle!
+        unliked.shuffle!
+        rand_front = unliked.shift(liked.length * 2)
+        rand_front += liked
+        rand_front.shuffle!
+        begin  ##error handling 
+          rand_front.unshift(liked_most)
+        rescue
+          puts "No songs liked in this scene yet :("
+        end
+        @playlist = rand_front + unliked
     end
-    liked.shuffle!
-    unliked.shuffle!
-    rand_front = unliked.shift(liked.length * 2)
-    rand_front += liked
-    rand_front.shuffle!
-    begin  ##error handling 
-      rand_front.unshift(liked_most)
-    rescue
-      puts "No songs liked in this scene yet :("
-    end
-    @playlist = rand_front + unliked
 
 
     def index
@@ -89,4 +87,6 @@ class MainController < ApplicationController
             find[0].destroy
         end
     end
+
+end
 
