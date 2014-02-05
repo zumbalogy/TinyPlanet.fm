@@ -7,16 +7,6 @@
   </div> 
 
   <div class='col-xs-3 pull-right'>
-    <div id="signin-div" class="row" >
-      <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.username, "/users/edit" %></li>
-          <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "sign in", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
 <!-- form_for this? - MHP -->
     <p>I'm listening to the...</p>
     <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
@@ -35,5 +25,6 @@
   <span id="myspan" class="glyphicon glyphicon-heart-empty"></span>
   <img class="ticker" src="https://raw.github.com/indabaui/player/master/screenshots/soundcloud.png" alt="Share">
 </div>
-<div id="putTheWidgetHere"></div>
+
+ <%= render 'layouts/footer' %> 
 

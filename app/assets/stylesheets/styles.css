@@ -1,6 +1,6 @@
 body {
 	background-color: #243640;
-  color: white;
+  color: black;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-  color: white;
+  color: black;
   font-family: Syncopate;
 }
 
@@ -24,7 +24,7 @@ h5 {
 }
 
 p {
-	color: white;
+	color: black;
 	letter-spacing: 1px;
 	font-family: Syncopate;
 	font-size: 10px;
