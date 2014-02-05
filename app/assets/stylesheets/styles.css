@@ -1,18 +1,25 @@
 body {
 	background-color: #243640;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, footer {
   color: white;
+  font-family: Syncopate;
 }
 
 h1 {
-  color: white;
   letter-spacing: 3px;
-  font-family: Syncopate;
   font-size: 3em;
 }
 
 h2 {
-  color: white;
+<<<<<<< HEAD
+  color: black;
   font-family: Syncopate;
+=======
+
+>>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
 }
 
 h4 {
@@ -24,9 +31,11 @@ h5 {
 }
 
 p {
-	color: white;
+<<<<<<< HEAD
+	color: black;
+=======
+>>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
 	letter-spacing: 1px;
-	font-family: Syncopate;
 	font-size: 10px;
 }
 
@@ -193,6 +202,7 @@ footer {
 .no-margin-top {
   margin-top: 0px;
 }
+<<<<<<< HEAD
 
 .red {
   background-color: red;
@@ -205,3 +215,5 @@ footer {
 .centered {
   margin: 0 auto;
 }
+=======
+>>>>>>> 71f470ffd86b29f9572545fa4f97bbcab6db487a
