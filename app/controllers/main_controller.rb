@@ -79,7 +79,7 @@ class MainController < ApplicationController
     end
 
     def favorite
-        find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user))
+        find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user)
         if find == []
             foo = Favorite.new
             foo.user_id = current_user
@@ -89,4 +89,4 @@ class MainController < ApplicationController
             find[0].destroy
         end
     end
-end
+
