@@ -10,33 +10,32 @@ class MainController < ApplicationController
       @combo.city = params[:city]
       @combo.genre = params[:genre]
       @combo.save
-    end
 
-    @tracks.each do |track|
-      song = Song.new
-      song.combo_id = @combo.id
-      song.name = track.title
-      song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
-      song.soundcloud_id = track.id
-      song.artwork_url = track.artwork_url
-      song.artist = track.user.username
-      song.save
+      @tracks.each do |track|
+        song = Song.new
+        song.combo_id = @combo.id
+        song.name = track.title
+        song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
+        song.soundcloud_id = track.id
+        song.artwork_url = track.artwork_url
+        song.artist = track.user.username
+        song.save
+      end
+    else
+      puts "already created!"
     end
-    # respond_to do |format|
-    #     format.json  { render :json => "hello" }
-
-    # redirect_to "/"
-    #end
+    # head :created, location: @client
+    render :nothing => true
   end
 
 
 
   def serve
-    combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+    @combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
     unliked = []
     liked = []
     high_count = 0
-    combo.songs.each do |song|
+    @combo.songs.each do |song|
       if song.users.count == 0
         unliked.push(song)
       else
@@ -53,7 +52,11 @@ class MainController < ApplicationController
     rand_front = unliked.shift(liked.length * 2)
     rand_front += liked
     rand_front.shuffle!
-    rand_front.unshift(liked_most)
+    begin
+      rand_front.unshift(liked_most)
+    rescue
+      puts "No songs liked in this scene yet :("
+    end
     @playlist = rand_front + unliked
 
     respond_to do |format|
@@ -82,7 +85,7 @@ class MainController < ApplicationController
   end
 
   def favorite
-    find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user))
+    find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user)
     if find == []
       foo = Favorite.new
       foo.user_id = current_user
@@ -92,5 +95,5 @@ class MainController < ApplicationController
       find[0].destroy
     end
   end
-
 end
+
