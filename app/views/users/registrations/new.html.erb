@@ -1,12 +1,7 @@
 <h2>sign up</h2>
 
-<<<<<<< HEAD
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-=======
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
->>>>>>> 846951733dd574c68c0349b2add9f91eef1c5b99
-
+ <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.text_field :username, :required => true, :autofocus => true, class: 'form-group' %>
     <%= f.text_field :email, :required => true, :autofocus => true, class: 'form-group' %>
