@@ -3,18 +3,6 @@ body {
   color: white;
 }
 
-.navbar {
-  font-family: Syncopate;
-  background-color: #243640;
-  border-color: #243640;
-  color: white;
-}
-
-.navbar-inner {
-  background-color: #243640;
-  color: white;
-}
-
 h1 {
   color: white;
   letter-spacing: 3px;
@@ -43,9 +31,97 @@ p {
 }
 
 footer {
-	height: 123px;
-	position: absolute;
+	height: 150px;
+	position: relative;
 	bottom: 0;
+}
+
+@media screen{
+  footer {
+    width: 100%;
+  }
+}
+
+#page-top {
+	margin-bottom: 25px;
+}
+
+#player {
+  color: black;
+  background-color: white;
+	height: 200px;
+	padding-left:0px;
+  margin-bottom: 100px;
+}
+
+#sign-in-btn{
+	margin-right:20px;
+}
+
+#alb-cover{
+	height:200px;
+	width: 200px;
+	margin-right: 15px;
+	float:left;
+}
+
+#stripe1 { 
+  border-bottom: 50px solid orange; 
+  border-left: 50px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#stripe2 { 
+  border-bottom: 100px solid purple; 
+  border-left: 100px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#stripe3 { 
+  border-bottom: 150px solid blue; 
+  border-left: 150px solid transparent; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#last-played-heart {
+  margin-top: 7px;
+  font-size: 25px;
+}
+
+#last-played-rocket {
+  margin-left: 25px;
+}
+
+#just-played {
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#stripes-div {
+  position: relative;
+}
+
+#last-played-content {
+  margin-top: 13px;
+}
+
+.navbar {
+  font-family: Syncopate;
+  background-color: #243640;
+  border-color: #243640;
+  color: white;
+}
+
+.navbar-inner {
+  background-color: #243640;
+  color: white;
 }
 
 .logo { 
@@ -91,65 +167,6 @@ footer {
   width: 185px;
 }
 
-#page-top {
-	margin-bottom: 25px;
-}
-
-#player {
-  color: black;
-  background-color: white;
-	height: 200px;
-	padding-left:0px;
-}
-
-#sign-in-btn{
-	margin-right:20px;
-}
-
-#alb-cover{
-	height:200px;
-	width: 200px;
-	margin-right: 15px;
-	float:left;
-}
-
-#stripe1 { 
-  border-bottom: 50px solid orange; 
-  border-left: 50px solid transparent; 
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-#stripe2 { 
-  border-bottom: 100px solid purple; 
-  border-left: 100px solid transparent; 
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-#stripe3 { 
-  border-bottom: 150px solid blue; 
-  border-left: 150px solid transparent; 
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-#you-last-played-icons {
-  margin-top: 10px;
-}
-
-#last-played-heart {
-  margin-top:7px;
-  font-size: 25px;
-}
-
-#last-played-rocket {
-  margin-left: 13px;
-}
-
 .rocket-icon {
 	height: 40px;
   margin-bottom: 14px;
@@ -168,7 +185,7 @@ footer {
 }
 
 .double-bottom-border {
-  padding-bottom: 4px;
+  padding-bottom: 7px;
   border-bottom: double white;
 }
 
@@ -176,8 +193,10 @@ footer {
   margin-top: 0px;
 }
 
-@media screen{
-  footer {
-    width: 100%;
-  }
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
 }
