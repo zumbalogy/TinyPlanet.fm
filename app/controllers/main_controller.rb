@@ -22,10 +22,6 @@ class MainController < ApplicationController
                 song.save
             end
         end
-        # respond_to do |format|
-        #     format.json  { render :json => }
-        # end
-        # redirect_to "/"
     end
     
     def serve
@@ -39,9 +35,10 @@ class MainController < ApplicationController
             else
                 if song.users.count > high_count
                     high_count = song.users.count
+                    liked << liked_most if liked_most
                     liked_most = song
                 else
-                     liked.unshift(song)
+                     liked.push(song)
                 end
             end
         end
@@ -74,7 +71,6 @@ class MainController < ApplicationController
         else
             find.delete
         end
-        # redirect_to "/"
     end
 
     def favorite
