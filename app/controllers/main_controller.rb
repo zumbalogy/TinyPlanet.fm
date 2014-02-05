@@ -29,7 +29,7 @@ class MainController < ApplicationController
   end
     
     def serve
-        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
         unliked = []
         liked = []
         high_count = 0
@@ -57,6 +57,9 @@ class MainController < ApplicationController
           puts "No songs liked in this scene yet :("
         end
         @playlist = rand_front + unliked
+         respond_to do |format| 
+          format.json { render :json => @playlist.to_json}
+        end
     end
 
 
