@@ -37,14 +37,6 @@ var audioView = function audioView() {
   }
 
 
-
-
-
-
- // function addSource(elem, path) {  
- //      $('<source>').attr('src', path).appendTo(elem);  
- //    }  
-
  $(function(){
     $('body').on('keypress', function(e){
         if (e.which == 13) {
@@ -68,17 +60,9 @@ var audioView = function audioView() {
                 console.log(data);
                 songs = data
                 new audioView();
-              
-
-                
-                
-
-
             })
 
         };
-
-        
     });
 
     $('like').on("click", function(){
@@ -89,27 +73,8 @@ var audioView = function audioView() {
             data: { song_id: 'song_id_goes_here'}
 
         })
-
-
-    });
-
-    
+    });    
 })   
 
 
 
-
-// var audio = $('<audio>', {  
-//   autoPlay : 'autoplay',  
-//   controls : 'controls'  
-// }); 
-// audio.appendTo('player');
-// addSource(audio, songs[0].url);
-
-    //         for (var i=0;i<10;i++){
-        //             var foo = $('<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + data[i].id +'&color=01DFA5&show_comments=false&show_artwork=true&show_playcount=false&liking=false&theme_color=01DFA5&sharing=false&buying=false&show_user=false&show_artwork=false"></iframe>');
-        //             $('#ul').append($('#player'));
-        //             $('#ul').append('<img src="' + data[i].waveform_url + '">')
-        //         }
-        //     })
-        // }
