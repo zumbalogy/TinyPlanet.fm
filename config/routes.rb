@@ -11,6 +11,8 @@ Tinyplanet::Application.routes.draw do
 
   post '/favorite' => 'main#favorite'
 
+  post '/liked' => 'main#like'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
