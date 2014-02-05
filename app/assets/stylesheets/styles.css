@@ -1,11 +1,10 @@
-body {
-	background-color: #243640;
-  color: white;
+h1, h2, h3, h4, h5, h6, p, li, footer, body {
+  color: pink;
+  font-family: Syncopate;
 }
 
-h1, h2, h3, h4, h5, h6, p, li, footer {
-  color: white;
-  font-family: Syncopate;
+body {
+  background-color: #243640;
 }
 
 h1 {
@@ -34,12 +33,6 @@ footer {
 	height: 150px;
 	position: relative;
 	bottom: 0;
-}
-
-@media screen{
-  footer {
-    width: 100%;
-  }
 }
 
 #page-top {
@@ -150,14 +143,6 @@ footer {
   display: inline-block;
 }
 
-.rocket-icon {
-  height: 20px;
-  margin-bottom: 14px;
-  transform:rotate(20deg);
-  -ms-transform:rotate(20deg); /* IE 9 */
-  -webkit-transform:rotate(20deg); /* Safari and Chrome */
-}
-
 .margin-top {
   margin-top: 23px;
 }
@@ -175,15 +160,6 @@ footer {
 	-webkit-transform:rotate(20deg); /* Safari and Chrome */
 }
 
-.margin-top {
-	margin-top: 23px;
-}
-
-.ticker{
-  height: 15px;
-  width: 185px;
-}
-
 .double-bottom-border {
   padding-bottom: 7px;
   border-bottom: double white;
@@ -191,4 +167,10 @@ footer {
 
 .no-margin-top {
   margin-top: 0px;
+}
+
+@media screen{
+  footer {
+    width: 100%;
+  }
 }
