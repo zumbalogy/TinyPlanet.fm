@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-  def save
+    def save
     check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
     if check.length == 0
       @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
@@ -24,31 +24,6 @@ class MainController < ApplicationController
     else
       puts "already created!"
     end
-<<<<<<< HEAD
-  # head :created, location: @client
-  render :nothing => true
-  end
-    
-  def serve
-    combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
-    unliked = []
-    liked = []
-    high_count = 0
-
-    combo.songs.each do |song|
-      if song.users.count == 0
-          unliked.push(song)
-      else
-          if song.users.count > high_count
-              high_count = song.users.count
-              liked << liked_most if liked_most
-              liked_most = song
-          else
-              liked.push(song)
-          end
-      end
-    end
-=======
     # head :created, location: @client
     render :nothing => true ## cause we dont need to render nada
   end
@@ -86,46 +61,31 @@ class MainController < ApplicationController
     end
     @playlist = rand_front + unliked
 
->>>>>>> 0709383a93c8bb52283bf0ad54da68cd73e8e8c3
 
-    liked.shuffle!
-    unliked.shuffle!
-    rand_front = unliked.shift(liked.length * 2)
-    rand_front += liked
-    rand_front.shuffle!
-    rand_front.unshift(liked_most)
-    @playlist = rand_front + unliked
-    
-    respond_to do |format|
-        format.json  { render :json => @playlist.to_json }
+    def index
     end
-  end
-    
-  def index
-  end
 
-  def opinion
-    find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
-    if find == []
-        foo = Opinion.new
-        foo.song_id = Song.find(params[:song_id])
-        foo.user_id = User.find(current_user) 
-        foo.enjoyed = true
-        foo.save
-    else
-        find.delete
+    def opinion
+        find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
+        if find == []
+            foo = Opinion.new
+            foo.song_id = Song.find(params[:song_id])
+            foo.user_id = User.find(current_user) 
+            foo.enjoyed = true
+            foo.save
+        else
+            find.delete
+        end
     end
-  end
 
-  def favorite
-    find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user))
-    if find == []
-        foo = Favorite.new
-        foo.user_id = current_user
-        foo.combo_id = params[:combo_id]
-        foo.save
-    else
-        find[0].destroy
+    def favorite
+        find = Favorite.where("combo_id = ? AND user_id = ?", params[:combo_id], current_user)
+        if find == []
+            foo = Favorite.new
+            foo.user_id = current_user
+            foo.combo_id = params[:combo_id]
+            foo.save
+        else
+            find[0].destroy
+        end
     end
-  end
-end
