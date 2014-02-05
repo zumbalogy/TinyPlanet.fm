@@ -1,28 +1,32 @@
 class MainController < ApplicationController
 
     def save
-        check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
-        if check.length == 0
-            @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
-            @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable')
-     
-            @combo = Combo.new
-            @combo.city = params[:city]
-            @combo.genre = params[:genre]
-            @combo.save
-    
-            @tracks.each do |track|
-                song = Song.new
-                song.combo_id = @combo.id
-                song.name = track.title
-                song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
-                song.soundcloud_id = track.id
-                song.artwork_url = track.artwork_url
-                song.artist = track.user.username
-                song.save
-            end
-        end
+    check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
+    if check.length == 0
+      @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
+      @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable')
+
+      @combo = Combo.new
+      @combo.city = params[:city]
+      @combo.genre = params[:genre]
+      @combo.save
+
+      @tracks.each do |track|
+        song = Song.new
+        song.combo_id = @combo.id
+        song.name = track.title
+        song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
+        song.soundcloud_id = track.id
+        song.artwork_url = track.artwork_url
+        song.artist = track.user.username
+        song.save
+      end
+    else
+      puts "already created!"
     end
+    # head :created, location: @client
+    render :nothing => true
+  end
     
     def serve
         combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
@@ -53,8 +57,6 @@ class MainController < ApplicationController
         respond_to do |format|
             format.json  { render :json => @playlist.to_json }
         end
-    end
-
     
 
     def index
