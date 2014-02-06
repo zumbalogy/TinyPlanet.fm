@@ -1,5 +1,6 @@
 var songs;
 var play ="";
+var combo_id;
 
 var audioView = function audioView() {
     var self = this;
@@ -63,6 +64,16 @@ var audioView = function audioView() {
         })
     }); 
 
+    $('#combolike').on("click", function(){
+        $(this).toggleClass("fa-heart-o", "fa-heart");
+        $.ajax({
+            url: "/favorite",
+            method: "POST",
+            dataType: 'json',
+            data: { combo_id: combo_id}
+        })
+    }); 
+
     newSong();
 }
 
@@ -77,8 +88,7 @@ var audioView = function audioView() {
                 data: { genre: $('#genre').val(), city: $('#city').val() }
             })
             .success( function(data){
-                console.log(data); 
-
+                combo_id = data.combo_id; 
             })
             $.ajax({
                 url: '/serve',

@@ -25,7 +25,12 @@ class MainController < ApplicationController
           puts "already created!"
         end
         # head :created, location: @client
-        render :nothing => true
+        if @combo
+            combo_id = @combo.id
+        else
+            combo_id = check[0].id
+        end
+        render json: {combo_id: combo_id}.to_json
     end
     
     def serve
