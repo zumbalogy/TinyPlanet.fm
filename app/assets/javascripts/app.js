@@ -17,6 +17,7 @@ var audioView = function audioView() {
             track++;
             newSong();
         })
+        $('#player').removeClass("hide");
         $('#art').empty();
         $('#art').attr('src', song.artwork_url);
         $('#song-info').empty();
