@@ -29,7 +29,6 @@ var audioView = function audioView() {
             $('#lastSong').empty();
             $('#lastSong').text(lastSong.name);
         }
-
     }
     $('#play').on('click', function(){
         audio.play();
@@ -40,7 +39,6 @@ var audioView = function audioView() {
     $('#next').on('click', function() {
         track++;
         newSong();
-        
     })
     $('#current-heart').on("click", function(){
         $(this).toggleClass("fa-heart-o", "fa-heart");
@@ -95,3 +93,4 @@ var audioView = function audioView() {
         };
     }); 
 })   
+
