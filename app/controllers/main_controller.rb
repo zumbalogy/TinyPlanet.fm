@@ -19,7 +19,7 @@ class MainController < ApplicationController
             song.soundcloud_id = track.id
             song.artwork_url = track.artwork_url || 'http://icons.iconarchive.com/icons/dan-wiersma/solar-system/512/Uranus-icon.png'
             song.artist = track.user.username
-            song.save
+            song.save if track.stream_url
           end
         else
           puts "already created!"
@@ -34,7 +34,6 @@ class MainController < ApplicationController
         liked = []
         liked_most = 0
         high_count = 0
-        binding.pry
         combo.songs.each do |song|
             if song.users.count == 0
                 unliked.push(song)
