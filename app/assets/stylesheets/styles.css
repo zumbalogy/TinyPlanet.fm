@@ -69,11 +69,29 @@ footer {
 }
 
 #heart{
-  position: absolute; 
   z-index: 1;
   color: red;
   left: 0;
-  margin-left: 11px;
+  margin-left: 48px;
+}
+
+#play {
+  left: 0;
+  bottom: 0;
+  margin-left: 51px;
+  margin-bottom: 7px;
+}
+
+#pause {
+  bottom: 0;
+  margin-bottom: 6px;
+  margin-left: -60px;
+}
+
+#next {
+  margin-bottom: 6px;
+  bottom: 0;
+  margin-left: -26px;
 }
 
 #stripe1 { 
@@ -185,4 +203,12 @@ footer {
 
 .centered {
   margin: 0 auto;
+}
+
+.pos-absolute{
+  position: absolute;
+}
+
+.text-shadow{
+  text-shadow: black 3px 3px 5px;
 }

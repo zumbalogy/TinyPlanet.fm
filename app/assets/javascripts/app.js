@@ -43,6 +43,7 @@ var audioView = function audioView() {
         
     })
     $('#heart').on("click", function(){
+        this.toggleClass("fa-heart-o", "fa-heart");
         $.ajax({
             url: "/liked",
             method: "POST",
