@@ -68,7 +68,7 @@ footer {
   float:left;
 }
 
-#player-heart{
+#heart{
   position: absolute; 
   z-index: 1;
   color: red;
