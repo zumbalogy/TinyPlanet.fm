@@ -66,7 +66,7 @@ class MainController < ApplicationController
     def index
     end
 
-    def opinion
+    def like
         find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
         if find == []
             foo = Opinion.new

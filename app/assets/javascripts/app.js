@@ -42,13 +42,23 @@ var audioView = function audioView() {
         newSong();
         
     })
-    $('#heart').on("click", function(){
-        this.toggleClass("fa-heart-o", "fa-heart");
+    $('#current-heart').on("click", function(){
+        $(this).toggleClass("fa-heart-o", "fa-heart");
         $.ajax({
             url: "/liked",
             method: "POST",
             dataType: 'json',
             data: { song_id: song.id}
+        })
+    }); 
+
+    $('#last-heart').on("click", function(){
+        $(this).toggleClass("fa-heart-o", "fa-heart");
+        $.ajax({
+            url: "/liked",
+            method: "POST",
+            dataType: 'json',
+            data: { song_id: lastSong.id}
         })
     }); 
 
