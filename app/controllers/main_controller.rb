@@ -1,8 +1,8 @@
 class MainController < ApplicationController
 
-    def save
-        check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
-        if check.length == 0
+    def serve
+        @combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
+        if @combo == nil
           @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
           @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable')
 
@@ -18,28 +18,16 @@ class MainController < ApplicationController
             song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
             song.soundcloud_id = track.id
             song.artwork_url = track.artwork_url || 'http://icons.iconarchive.com/icons/dan-wiersma/solar-system/512/Uranus-icon.png'
+            song.artwork_url = song.artwork_url.gsub("large", "t300x300")
             song.artist = track.user.username
             song.save if track.stream_url
           end
-        else
-          puts "already created!"
         end
-        # head :created, location: @client
-        if @combo
-            combo_id = @combo.id
-        else
-            combo_id = check[0].id
-        end
-        render json: {combo_id: combo_id}.to_json
-    end
-    
-    def serve
-        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
         unliked = []
         liked = []
         liked_most = 0
         high_count = 0
-        combo.songs.each do |song|
+        @combo.songs.each do |song|
             if song.users.count == 0
                 unliked.push(song)
             else
@@ -67,10 +55,7 @@ class MainController < ApplicationController
           format.json { render :json => @playlist.to_json}
         end
     end
-
-    def comboserve
-        render json: current_user.combos.to_json
-    end
+    
 
     def index
     end
@@ -100,6 +85,11 @@ class MainController < ApplicationController
             find[0].destroy
         end
         render :nothing => true
+    end
+
+
+    def comboserve
+        render json: current_user.combos.to_json
     end
 
 end
