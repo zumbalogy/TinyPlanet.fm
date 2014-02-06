@@ -14,10 +14,11 @@
   </head>
 
   <body>
-
+  <% unless user_signed_in? %>
+    <%= render 'landing' %>
+    <% else %>
     <div class="container">
         <%= yield %>
-        <%= render 'layouts/footer' %>
     </div>
 
     <div id="stripes-div">
@@ -25,6 +26,7 @@
       <div id="stripe2"></div>
       <div id="stripe1"></div> 
     </div>
+    <% end %>
 
   </body>
   
