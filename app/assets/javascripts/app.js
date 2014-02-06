@@ -32,7 +32,6 @@ var audioView = function audioView() {
             $('#lastSong').empty();
             $('#lastSong').text(lastSong.name);
         }
-
     }
     $('#play').on('click', function(){
         audio.play();
@@ -43,10 +42,9 @@ var audioView = function audioView() {
     $('#next').on('click', function() {
         track++;
         newSong();
-        
     })
-    $('#heart').on("click", function(){
-        this.toggleClass("fa-heart-o", "fa-heart");
+    $('#current-heart').on("click", function(){
+        $(this).toggleClass("fa-heart-o", "fa-heart");
         $.ajax({
             url: "/liked",
             method: "POST",
@@ -55,7 +53,16 @@ var audioView = function audioView() {
         })
     }); 
 
-    // $('#player').append(audio)
+    $('#last-heart').on("click", function(){
+        $(this).toggleClass("fa-heart-o", "fa-heart");
+        $.ajax({
+            url: "/liked",
+            method: "POST",
+            dataType: 'json',
+            data: { song_id: lastSong.id}
+        })
+    }); 
+
     newSong();
 }
 
@@ -89,3 +96,4 @@ var audioView = function audioView() {
         };
     }); 
 })   
+
