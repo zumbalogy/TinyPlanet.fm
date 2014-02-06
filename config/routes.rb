@@ -13,6 +13,8 @@ Tinyplanet::Application.routes.draw do
 
   post '/liked' => 'main#like'
 
+  get '/comboserve' => 'main#comboserve'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

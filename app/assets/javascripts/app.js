@@ -1,6 +1,7 @@
 var songs;
 var play ="";
 var combo_id;
+var save_combos;
 
 var audioView = function audioView() {
     var self = this;
@@ -18,6 +19,7 @@ var audioView = function audioView() {
         id = song.id;
         audio.play();
         audio.addEventListener("ended", function (){
+            $("#current-heart").toggleClass("fa-heart-o", "fa-heart");
             track++;
             newSong();
         })
@@ -28,8 +30,7 @@ var audioView = function audioView() {
         $('#song-info').text(song.name);
         if (lastSong == songs[-1]){
             $('#lastSong').empty();
-        }
-        else{
+        } else {
             $('#lastSong').empty();
             $('#lastSong').text(lastSong.name);
         }
@@ -41,11 +42,28 @@ var audioView = function audioView() {
         audio.pause();
     })
     $('#next').on('click', function() {
+        if ( $('#current-heart').hasClass("fa-heart") == true ) {
+            $('#last-heart').removeClass("fa-heart-o");
+            $('#last-heart').addClass("fa-heart");
+        } else {
+            $('#last-heart').removeClass("fa-heart");
+            $('#last-heart').addClass("fa-heart-o");
+        }
+        $('#current-heart').addClass("fa-heart-o");
+        $('#current-heart').removeClass("fa-heart");
+        
         track++;
         newSong();
     })
     $('#current-heart').on("click", function(){
-        $(this).toggleClass("fa-heart-o", "fa-heart");
+        if ($('#current-heart').hasClass('fa-heart-o') == true) {
+            $('#current-heart').removeClass("fa-heart-o");
+            $('#current-heart').addClass("fa-heart");
+        } else {
+            $('#current-heart').removeClass("fa-heart");
+            $('#current-heart').addClass("fa-heart-o");
+        }
+       
         $.ajax({
             url: "/liked",
             method: "POST",
@@ -55,7 +73,13 @@ var audioView = function audioView() {
     }); 
 
     $('#last-heart').on("click", function(){
-        $(this).toggleClass("fa-heart-o", "fa-heart");
+        if ($('#last-heart').hasClass('fa-heart-o') == true) {
+            $('#last-heart').removeClass("fa-heart-o");
+            $('#last-heart').addClass("fa-heart");
+        } else {
+            $('#last-heart').removeClass("fa-heart");
+            $('#last-heart').addClass("fa-heart-o");
+        }
         $.ajax({
             url: "/liked",
             method: "POST",
@@ -65,20 +89,31 @@ var audioView = function audioView() {
     }); 
 
     $('#combolike').on("click", function(){
-        $(this).toggleClass("fa-heart-o", "fa-heart");
+        $('#combolike').toggleClass("fa-heart-o", "fa-heart");
         $.ajax({
             url: "/favorite",
             method: "POST",
             dataType: 'json',
             data: { combo_id: combo_id}
         })
-    }); 
+    });
 
     newSong();
 }
 
 
  $(function(){
+    $.ajax({
+        url: '/comboserve',
+        method: 'GET',
+        dataType: 'json'
+    })
+    .success( function(data){
+        save_combos = data;
+        console.log(data);
+        $(data).each
+    })
+            
     $('body').on('keypress', function(e){
         if (e.which == 13) {
             $.ajax({
@@ -88,7 +123,7 @@ var audioView = function audioView() {
                 data: { genre: $('#genre').val(), city: $('#city').val() }
             })
             .success( function(data){
-                combo_id = data.combo_id; 
+                combo_id = data.combo_id;
             })
             $.ajax({
                 url: '/serve',
@@ -100,7 +135,6 @@ var audioView = function audioView() {
                 console.log(data);
                 songs = data
                 new audioView();
-                
             })
 
         };

@@ -68,6 +68,9 @@ class MainController < ApplicationController
         end
     end
 
+    def comboserve
+        render json: current_user.combos.to_json
+    end
 
     def index
     end
