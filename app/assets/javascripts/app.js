@@ -2,14 +2,14 @@ var songs;
 
 var audioView = function audioView() {
     var self = this;
-    var track = 0
-    var audio = new Audio
+    var track = 0;
+    var audio = new Audio;
 
         function newSong() {
-            var song = songs[track]
-            audio.src = song.url
+            var song = songs[track];
+            audio.src = song.url;
             audio.onload = function (){
-                audio.play()
+                audio.play();
             }
             audio.addEventListener("ended", function (){
                 track++
