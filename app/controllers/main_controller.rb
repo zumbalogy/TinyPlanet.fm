@@ -66,17 +66,18 @@ class MainController < ApplicationController
     def index
     end
 
-    def opinion
-        find = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
-        if find == []
+    def like
+        found = Opinion.where("song_id = ? AND user_id = ?", params[:song_id], current_user)
+        if found == []
             foo = Opinion.new
-            foo.song_id = Song.find(params[:song_id])
-            foo.user_id = User.find(current_user) 
+            foo.song_id = Song.find(params[:song_id]).id
+            foo.user = current_user
             foo.enjoyed = true
             foo.save
         else
-            find.delete
+            found[0].delete
         end
+        render :nothing => true
     end
 
     def favorite
@@ -89,6 +90,7 @@ class MainController < ApplicationController
         else
             find[0].destroy
         end
+        render :nothing => true
     end
 
 end
