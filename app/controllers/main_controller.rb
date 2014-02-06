@@ -18,6 +18,7 @@ class MainController < ApplicationController
             song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
             song.soundcloud_id = track.id
             song.artwork_url = track.artwork_url || 'http://icons.iconarchive.com/icons/dan-wiersma/solar-system/512/Uranus-icon.png'
+            song.artwork_url = song.artwork_url.gsub("large", "t300x300")
             song.artist = track.user.username
             song.save if track.stream_url
           end
