@@ -1,56 +1,57 @@
-
-
-<div class="inner cover">
- <% unless user_signed_in? %>
-  <h1 class="cover-heading">Make a Scene.</h1>
-    <p class="lead">ever wonder about what music you might be missing out on? with tinyplanet.fm, you can search, like, and find local artists playing the music you want to here. </p>
-    <p class="lead">
-    <a href="#" class="btn btn-lg btn-default">Get Started</a>
-    </p>
-  </div>
+<div id="signin-div" class="navbar" >
+  <ul id="sign-in-btn" class="nav navbar-nav navbar-right pull-right">
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.username, "/users/edit" %></li>
+      <li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
     <% else %>
-  <div class="make-scene">
-        <p>I'm listening to the...</p>
-        <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
-        <br>
-        <p>in...</p>
-      <input name='city' class='form-control' id='city' placeholder='city'></input>
+      <li><%= link_to "sign in", new_user_session_path %></li>
+    <% end %>
+  </ul>
 </div>
-    
 
+<div id="page-top" class="row">
 
-<div id="player" class="col-xs-8 col-xs-offset-2">
-  <div id="album art">
-    I AM ART
+  <div class="col-lg-2 title">
+    <div class="row">
+      <div class="logo col-lg-offset-2 col-lg-8 "></div> 
+      <span class="title">
+        <h1>TINYPLANET</h1>
+      </span>
+    </div> 
   </div>
 
-  <div id="song-info">
-    I AM SONG INFO
+  <div class='col-xs-3 pull-right'>
+    <p>I'm listening to the...</p>
+    <input name='genre' id='genre' class="form-control" placeholder='scene'></input>
+    <br>
+    <p>Scene in...</p>
+    <input name='city' class='form-control' id='city' placeholder='city'></input>
   </div>
 
-<div id="controls">
-<i class="fa fa-play glyphicon-large"></i>
-<i class="fa fa-pause glyphicon-large"></i>
-<i class="fa fa-heart glyphicon-large"></i>
-<i class="fa fa-rocket glyphicon-large"></i>
 </div>
-  <div id="share-like">
-  <span id="favorite" class=></span>
-  </div>
 
- <footer class="row">
-  <div id="just-played" class="col-lg-4 col-xs-6">
-    <h4 class="double-bottom-border">You last played:</h4> 
-    <div id="last-played-content" class="row">
-      <div class="col-lg-6">  
-        <h5 class="no-margin-top">"She Sleeps Alone"</h5> 
-        <h5>MiniBoone</h5>
-      </div>
-      <div class="col-xs-4 col-lg-6 pull-left">
-        <i class="fa fa-heart"></i>
-<i class="fa fa-rocket"></i>
+<div class="row">
+
+  <div id="player" class="col-lg-6 col-lg-offset-3">
+
+    <div id="album-cover" class="col-lg-2">
+      <div id="cover-image" style="position: relative; width: 300px; height: 300px; z-index: .2;">
+        <i id="player-heart" class="fa fa-heart-o icon" style="position: absolute; z-index: 1;" ></i>
+        <i id="play-btn" class="fa fa-play icon"></i>
+        <i id="skip-btn" class="fa fa-skip icon"></i>
       </div>
     </div>
+
+    <div class="album-descriptors">
+      <h4 id="title">"Clips"</h4>
+      <h4 id="artist">Ava Luna</h4>
+      <h5 id="album">Third Avenue Island</h5>
+      <i id="current-rocket" class="fa fa-rocket icon"></i>
+      <i id="current-heart" class="fa fa-heart-o icon"></i>
+    </div>
+
+    <img class="ticker" src="https://raw.github.com/indabaui/player/master/screenshots/soundcloud.png" alt="Share">
+
   </div>
-</footer>
-<% end %>
+
+</div>
