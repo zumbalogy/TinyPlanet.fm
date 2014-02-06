@@ -7,7 +7,10 @@
  */
 
 /* Links a,*/
-
+i:focus,
+i:hover {
+  color:red;
+}
 a:focus,
 a:hover {
   color: #EFE7BE;
@@ -402,3 +405,8 @@ footer {
 .text-shadow{
   text-shadow: black 3px 3px 5px;
 }
+
+.invisible{
+  opacity: 0;
+}
+
