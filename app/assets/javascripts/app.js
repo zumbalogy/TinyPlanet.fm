@@ -1,4 +1,5 @@
 var songs;
+var play ="";
 
 var audioView = function audioView() {
     var self = this;
@@ -6,7 +7,9 @@ var audioView = function audioView() {
     var lastSong;
     var song;
     var track = 0;
+    $('audio').remove();
     var audio = new Audio
+    $('#player').append(audio)
     function newSong() {
         song = songs[track]
         lastSong=songs[track-1]
@@ -60,7 +63,6 @@ var audioView = function audioView() {
         })
     }); 
 
-    $('#player').append(audio)
     newSong();
 }
 
@@ -88,6 +90,7 @@ var audioView = function audioView() {
                 console.log(data);
                 songs = data
                 new audioView();
+                
             })
 
         };
