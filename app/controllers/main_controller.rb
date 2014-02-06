@@ -1,8 +1,8 @@
 class MainController < ApplicationController
 
-    def save
-        check = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])
-        if check.length == 0
+    def serve
+        @combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
+        if @combo == nil
           @client = SoundCloud.new(:client_id => '4c2a3b5840e0236549608f59c2cd7d07')
           @tracks = @client.get('/tracks', q: params[:city], genres: params[:genre], filter: 'streamable')
 
@@ -23,19 +23,13 @@ class MainController < ApplicationController
             song.save if track.stream_url
           end
         else
-          puts "already created!"
         end
-        # head :created, location: @client
-        render :nothing => true
-    end
-    
-    def serve
-        combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
+        ##put serve here
         unliked = []
         liked = []
         liked_most = 0
         high_count = 0
-        combo.songs.each do |song|
+        @combo.songs.each do |song|
             if song.users.count == 0
                 unliked.push(song)
             else
@@ -63,7 +57,42 @@ class MainController < ApplicationController
           format.json { render :json => @playlist.to_json}
         end
     end
-
+    
+    # def serve
+    #     sleep 0.5
+    #     combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
+    #     unliked = []
+    #     liked = []
+    #     liked_most = 0
+    #     high_count = 0
+    #     combo.songs.each do |song|
+    #         if song.users.count == 0
+    #             unliked.push(song)
+    #         else
+    #             if song.users.count > high_count
+    #                 high_count = song.users.count
+    #                 liked << liked_most if liked_most
+    #                 liked_most = song
+    #             else
+    #                 liked.push(song)
+    #             end
+    #         end
+    #     end
+    #     liked.shuffle!
+    #     unliked.shuffle!
+    #     rand_front = unliked.shift(liked.length * 2)
+    #     rand_front += liked
+    #     rand_front.shuffle!
+    #     if liked_most != 0  
+    #       rand_front.unshift(liked_most)
+    #     else
+    #       puts "No songs liked in this scene yet :("
+    #     end
+    #     @playlist = rand_front + unliked
+    #      respond_to do |format| 
+    #       format.json { render :json => @playlist.to_json}
+    #     end
+    # end
 
     def index
     end

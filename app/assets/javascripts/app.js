@@ -70,30 +70,39 @@ var audioView = function audioView() {
  $(function(){
     $('body').on('keypress', function(e){
         if (e.which == 13) {
-            $.ajax({
-                url: '/save',
-                method: 'POST',
-                dataType: 'json',
-                data: { genre: $('#genre').val(), city: $('#city').val() }
-            })
-            .success( function(data){
-                console.log(data); 
+            serve();
+            }
+        })
+        })  
 
-            })
-            $.ajax({
-                url: '/serve',
-                method: 'POST',
-                dataType: 'json',
-                data: { genre: $('#genre').val(), city: $('#city').val() }
-            })
-            .success( function(data){
-                console.log(data);
-                songs = data
-                new audioView();
-                
-            })
 
-        };
-    }); 
-})   
+/// AJAX CALLS ///
+ // var save = function save(){
+ //    $.ajax({
+ //        url: '/save',
+ //        method: 'POST',
+ //        dataType: 'json',
+ //        data: { genre: $('#genre').val(), city: $('#city').val() }
+ //        })
+ //    .success (function(data){
+ //    console.log(data);
+ //    songs = 
 
+ //    })
+ // }
+
+
+var serve = function serve(){
+    $.ajax({
+        url: '/serve',
+        method: 'POST',
+        dataType: 'json',
+        data: { genre: $('#genre').val(), city: $('#city').val() }
+    })
+    .success( function(data){
+        console.log(data);
+        songs = data
+        new audioView();
+        
+    })
+}
