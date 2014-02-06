@@ -17,7 +17,7 @@ class MainController < ApplicationController
             song.name = track.title
             song.url = "#{track.stream_url}?client_id=4c2a3b5840e0236549608f59c2cd7d07"
             song.soundcloud_id = track.id
-            song.artwork_url = track.artwork_url
+            song.artwork_url = track.artwork_url || 'http://icons.iconarchive.com/icons/dan-wiersma/solar-system/512/Uranus-icon.png'
             song.artist = track.user.username
             song.save
           end
@@ -32,7 +32,9 @@ class MainController < ApplicationController
         combo = Combo.where("city = ? AND genre = ?", params[:city],params[:genre])[0]
         unliked = []
         liked = []
+        liked_most = 0
         high_count = 0
+        binding.pry
         combo.songs.each do |song|
             if song.users.count == 0
                 unliked.push(song)
@@ -51,9 +53,9 @@ class MainController < ApplicationController
         rand_front = unliked.shift(liked.length * 2)
         rand_front += liked
         rand_front.shuffle!
-        begin  ##error handling 
+        if liked_most != 0  
           rand_front.unshift(liked_most)
-        rescue
+        else
           puts "No songs liked in this scene yet :("
         end
         @playlist = rand_front + unliked
