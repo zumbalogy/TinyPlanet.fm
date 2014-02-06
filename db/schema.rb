@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20140205024518) do
   create_table "opinions", :force => true do |t|
     t.integer  "song_id",                       :null => false
     t.integer  "user_id",                       :null => false
-    t.boolean  "enjoyed?"
-    t.boolean  "favorited?", :default => false
+    t.boolean  "enjoyed"
+    t.boolean  "favorited",  :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
